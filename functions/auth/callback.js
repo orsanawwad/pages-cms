@@ -28,7 +28,8 @@ export async function onRequest(context) {
     if (responseData.access_token) {
       return Response.redirect(`${env.BASE_URL}/?access_token=${responseData.access_token}`, 302);
     } else {
-      throw new Error('Access token not found');
+      throw new Error(responseData);
+      // throw new Error('Access token not found');
     }
   }
 
